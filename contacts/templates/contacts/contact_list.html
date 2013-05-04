@@ -2,6 +2,11 @@
 
 <ul>
   {% for contact in object_list %}
-    <li>{{ contact }}</li>
+    <li>{{ contact }}
+      (<a href="{% url "contacts-edit" pk=contact.id %}">edit</a>
+       <a href="{% url "contacts-delete" pk=contact.id %}">Delete</a>)
+    </li>
   {% endfor %}
 </ul>
+
+<a href="{% url "contacts-new" %}">add contact</a>

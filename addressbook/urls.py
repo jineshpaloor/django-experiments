@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
 
+import addressbook.views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'addressbook.views.home', name='home'),
+    url(r'^$', addressbook.views.MyView.as_view(), name='home'),
     url(r'^contacts/', include('contacts.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
