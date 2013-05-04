@@ -1,10 +1,9 @@
 # Create your views here.
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView
 
 from contacts.models import Contact
-#from contacts.forms import ContactForm
 
 
 class ListContactView(ListView):
@@ -12,6 +11,10 @@ class ListContactView(ListView):
     model = Contact
     template_name = 'contact_list.html'
 
+class ContactView(DetailView):
+
+    model = Contact
+    template_name = 'contact_detail.html'
 
 class CreateContactView(CreateView):
 
