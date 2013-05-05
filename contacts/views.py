@@ -58,3 +58,14 @@ class DeleteContactView(DeleteView):
 
     def get_success_url(self):
         return reverse('contacts-list')
+
+class EditContactAddressView(UpdateView):
+
+    model = Contact
+    template_name = 'edit_addresses.html'
+    form_class = forms.ContactAddressFormSet
+
+    def get_success_url(self):
+
+        # redirect to the Contact view.
+        return self.get_object().get_absolute_url()
